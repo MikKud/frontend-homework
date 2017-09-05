@@ -7,6 +7,7 @@ QUnit.module('Тестируем функцию roman', function () {
 		assert.strictEqual(roman('M'), 1000);
 		assert.strictEqual(roman('l'), 50);
 		assert.strictEqual(roman('d'), 500);
+		assert.strictEqual(roman('VI'), 6);
 
 		assert.strictEqual(roman('iv'), 4);
 		assert.strictEqual(roman('iiii'), 4);
@@ -23,6 +24,7 @@ QUnit.module('Тестируем функцию roman', function () {
 		assert.strictEqual(roman(1000), 'M');
 		assert.strictEqual(roman(50), 'L');
 		assert.strictEqual(roman(500), 'D');
+		assert.strictEqual(roman(6), 'VI');
 
 		assert.strictEqual(roman(4), 'IV');
 		assert.strictEqual(roman(900), 'CM');
