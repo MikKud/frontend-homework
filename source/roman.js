@@ -1,6 +1,6 @@
 'use strict';
 
-const ArAndRom = {
+const RomanToArabic = {
     M: 1000,
     CM: 900,
     D: 500,
@@ -16,43 +16,32 @@ const ArAndRom = {
     I: 1
 };
 
-function roman(text)
-{
-    let result = isNaN(text) ? to_arab(text) : to_roman(text);
-    return result;
+function roman(text) {
+    return isNaN(text) ? to_arab(text) : to_roman(text);
 }
 
-function to_roman(text)
-{
-    if (!text)
-    {
-        return '';
-    }
-    let rezult = '';
+function to_roman(text) {
+    let result = '';
 
-    Object.keys(ArAndRom).forEach( key => {
-        while(text >= ArAndRom[key])
-    {
-        rezult += key;
-        text -= ArAndRom[key];
-    }
+    Object.keys(RomanToArabic).forEach( key => {
+        while(text >= RomanToArabic[key]){
+         result += key;
+         text -= RomanToArabic[key];
+        }
     });
-    return rezult;
+    return result;
 }
 
 function to_arab(text) {
     text = text.toUpperCase();
-    let rezult = 0;
+    let result = 0;
     let posit = 0;
 
-    Object.keys(ArAndRom).forEach(function (key, i, arr) {
-        /*if (posit === text.length) {
-            break;
-        }*/
+    Object.keys(RomanToArabic).forEach(key => {
         while (text.substr(posit, key.length) === key) {
-            rezult += ArAndRom[key];
+            result += RomanToArabic[key];
             posit += key.length;
         }
     });
-    return rezult;
+    return result;
 }
